@@ -1,19 +1,22 @@
 import React from 'react';
 import axios from 'axios';
+import Results from './Results';
 
 
 class SearchBar extends React.Component {
-  constructor() {
-    super();
-    this.state = { value: '', submitInput: '', gifsArray: [] };
+  constructor(props) {
+    super(props);
+    this.state = { value: '', submitInput: '', gifsArray: [], offset: 0, toSlice: []};
 
     // this.handleChange = this.handleChange.bind(this);
     // this.handleSubmit = this.handleSubmit.bind(this);
+    console.log(`line 13`, props);
   }
-  getGif = async (userInput) => {
+  getGif = async (userInput, ) => {
     const key = 'e6I6PjSAevodOVfP9kWE6ivjPXnDObA6';
     const searchPhrase = userInput;
     const limit = '25';
+
     axios
         .get(
             `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${searchPhrase}&limit=${limit}`
@@ -26,16 +29,21 @@ class SearchBar extends React.Component {
             gifsArr.forEach((gifObj) => {
                 gifsUrlArr.push(gifObj.images.fixed_height.url);
             });
+            const toSlice = this.state.gifsArray.slice(0, 5);
+            
             this.setState({
-                gifsArray: gifsUrlArr,
+                gifsArray: gifsUrlArr, 
+                toSlice
             });
             // console.log(gifsUrlArr);
+
         });
 };
 
   handleChange(event) {
     this.setState({ value: event.target.value });
   }
+
   handleSubmit(event) {
     console.log('did it');
     event.preventDefault();
@@ -43,12 +51,19 @@ class SearchBar extends React.Component {
         // this set state isnt working, check later if time
         // this.setState({ submitInput: input });
         console.log(input);
-        this.getGif(input);
-        
-        
-        
-    
+        this.getGif(input);    
   }
+
+  handleRegenerate(e) {
+    e.preventDefault();
+    console.log(this.state.offset);
+    let thing = this.state.offset + 1
+
+    const arrSlice = this.state.gifsArray.slice(thing, 5);
+    
+    this.setState({ offset: thing, toSlice: arrSlice });
+  }
+
   render() {
     // console.log('this.state.gifs');
     return (
@@ -59,15 +74,13 @@ class SearchBar extends React.Component {
           <input type="text" name="searchterm" id="searchterm" value={this.state.value} onChange={(e) => this.handleChange(e)} required />
           <button type="submit" >Submit!</button>
           {/* <input type="submit" className="fas fa-search" aria-label="search" value="&#xf002;" /> */}
-    
+        
+        <button onClick={(e) => this.handleRegenerate(e)} >Regenerate</button>
       </form>
-      
-      <div>
-      {this.state.gifsArray.map((url, index) => {
-          return <img src={url} key={index} />;
-      })}
-    </div>
+
+        <Results arrSlice={this.state.toSlice} offset={this.state.offset} />
     </>
+
     );
   }
 }
