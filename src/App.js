@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import axios from 'axios';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import SearchBar from './Components/SearchBar'
+import SearchNResults from './Components/SearchNResults';
+import Header from './Components/Header';
+import Footer from './Components/Footer';
+import Timeline from './Components/Timeline';
 
 class App extends Component {
 	constructor() {
@@ -10,24 +13,22 @@ class App extends Component {
 			gifs: [],
 		};
 	}
-
 	
 	render() {
 		const gifs = this.state.gifs;
 		return (
-			<div className="App">
-				{/* header */}
-				{/* search bar */}
-				<SearchBar />
-				{/* results */}
-				{/* timeline */}
-				{/* <h1>Giphy Sentiment</h1>
-				<div>
-					{gifs.map((url, index) => {
-						return <img src={url} key={index} />;
-					})}
-				</div> */}
-			</div>
+			<Router>
+				<div className="App">
+					{/* header */}
+					<Header />
+					{/* search bar and results */}
+					<Route path="/results" component={SearchNResults} />
+					{/* timeline */}
+					<Timeline />
+					{/* footer */}
+					<Footer />
+				</div>
+			</Router>
 		);
 	}
 }

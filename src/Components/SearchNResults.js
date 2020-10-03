@@ -2,8 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Results from './Results';
 
-
-class SearchBar extends React.Component {
+class SearchNResults extends React.Component {
   constructor(props) {
     super(props);
     this.state = { value: '', submitInput: '', gifsArray: [], offset: 0, toSlice: []};
@@ -12,7 +11,7 @@ class SearchBar extends React.Component {
     // this.handleSubmit = this.handleSubmit.bind(this);
     console.log(`line 13`, props);
   }
-  getGif = async (userInput, ) => {
+  getGif = async (userInput) => {
     const key = 'e6I6PjSAevodOVfP9kWE6ivjPXnDObA6';
     const searchPhrase = userInput;
     const limit = '25';
@@ -22,20 +21,21 @@ class SearchBar extends React.Component {
             `https://api.giphy.com/v1/gifs/search?api_key=${key}&q=${searchPhrase}&limit=${limit}`
         )
         .then((res) => {
-            console.log(res);
+            console.log(`data obj`, res);
             const gifsArr = res.data.data;
             let gifsUrlArr = [];
-            // console.log(res);
+            
+            const toSlice = this.state.gifsArray.slice(0, 5);
+            console.log(toSlice);
+            
             gifsArr.forEach((gifObj) => {
                 gifsUrlArr.push(gifObj.images.fixed_height.url);
             });
-            const toSlice = this.state.gifsArray.slice(0, 5);
             
             this.setState({
                 gifsArray: gifsUrlArr, 
-                toSlice
+                toSlice: toSlice,
             });
-            // console.log(gifsUrlArr);
 
         });
 };
@@ -45,21 +45,21 @@ class SearchBar extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log('did it');
+    console.log('handle submit');
     event.preventDefault();
-        const input = this.state.value;
-        // this set state isnt working, check later if time
-        // this.setState({ submitInput: input });
-        console.log(input);
-        this.getGif(input);    
+    const input = this.state.value;
+    // this set state isnt working, check later if time
+    this.getGif(input);    
+    this.setState({ submitInput: input });
+    // console.log(input);
   }
 
   handleRegenerate(e) {
     e.preventDefault();
-    console.log(this.state.offset);
-    let thing = this.state.offset + 1
+    console.log(`data from regenerate`, this.state.offset);
+    let thing = this.state.offset + 5
 
-    const arrSlice = this.state.gifsArray.slice(thing, 5);
+    const arrSlice = this.state.gifsArray.slice(thing, 5 + thing);
     
     this.setState({ offset: thing, toSlice: arrSlice });
   }
@@ -75,8 +75,8 @@ class SearchBar extends React.Component {
           <button type="submit" >Submit!</button>
           {/* <input type="submit" className="fas fa-search" aria-label="search" value="&#xf002;" /> */}
         
-        <button onClick={(e) => this.handleRegenerate(e)} >Regenerate</button>
       </form>
+        <button onClick={(e) => this.handleRegenerate(e)} >Regenerate</button>
 
         <Results arrSlice={this.state.toSlice} offset={this.state.offset} />
     </>
@@ -84,7 +84,7 @@ class SearchBar extends React.Component {
     );
   }
 }
-export default SearchBar;
+export default SearchNResults;
 
 
 // if (this.props.onSubmit && typeof this.props.onSubmit === "function")
