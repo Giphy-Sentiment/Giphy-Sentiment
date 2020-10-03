@@ -1,9 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 
-
-
-
 function ApiCall() {
     const getGif = async () => {
 		const key = 'e6I6PjSAevodOVfP9kWE6ivjPXnDObA6';
