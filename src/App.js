@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import SearchBar from './Components/SearchBar'
+
 class App extends Component {
 	constructor() {
 		super();
@@ -37,12 +39,17 @@ class App extends Component {
 		const gifs = this.state.gifs;
 		return (
 			<div className="App">
-				<h1>Giphy Sentiment</h1>
+				{/* header */}
+				{/* search bar */}
+				<SearchBar />
+				{/* results */}
+				{/* timeline */}
+				{/* <h1>Giphy Sentiment</h1>
 				<div>
 					{gifs.map((url, index) => {
 						return <img src={url} key={index} />;
 					})}
-				</div>
+				</div> */}
 			</div>
 		);
 	}
