@@ -5,6 +5,7 @@ import SearchNResults from './Components/SearchNResults';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Timeline from './Components/Timeline';
+import './App.css';
 
 class App extends Component {
 	constructor() {
