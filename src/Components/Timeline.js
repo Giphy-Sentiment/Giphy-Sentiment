@@ -1,13 +1,21 @@
-import React, { Component } from 'react';
+import React from 'react';
 
-class Timeline extends Component {
-  render() {
-    return (
-      <div>
-        <p>no comment</p>
-      </div>
-    );
-  }
+function Timeline(props) {
+  const thing = props.data
+  console.log(props.data);
+  return (
+    <>
+      <ul>
+        {thing.map((post) => {
+          return (
+            <li>
+              <p>{post}</p>
+            </li>
+          )
+        })}
+      </ul>
+    </>
+  );
 }
 
 export default Timeline;

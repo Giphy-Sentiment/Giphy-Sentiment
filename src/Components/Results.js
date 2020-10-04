@@ -1,18 +1,13 @@
 import React from 'react';
 
 function Results(props) {
-
   return (
-    <div>     
+    <ul>     
       {props.arrSlice.map((url, index) => {
-        return <img src={url} key={index} />;
+        return <li key={index} className="card"><img src={url} onClick={props.onSelect}/></li>
       })}
-    </div>
+    </ul>
   );
 }
 
 export default Results;
-
-
-// take the results of the gifArray that takes the gifs from the api call
-// 

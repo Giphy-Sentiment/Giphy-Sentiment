@@ -1,6 +1,9 @@
 import React from 'react';
 import axios from 'axios';
+// import moment from 'moment';
+import firebase from '../firebase';
 import Results from './Results';
+import Timeline from './Timeline';
 
 class SearchNResults extends React.Component {
   constructor(props) {
@@ -12,8 +15,24 @@ class SearchNResults extends React.Component {
       offset: 0, 
       gifsUrlArr: [],
       toSlice: [],
+      firebaseData: [],
     };
   }
+
+  componentDidMount() {
+    const dbRef = firebase.database().ref();
+    dbRef.on('value', (res) => {
+      const newState = []
+      const data = res.val()
+      for (let key in data) {
+        newState.push(data[key])
+      }
+      this.setState({
+        firebaseData: newState
+      })
+    })
+  }
+  
   getGif = async (userInput) => {
     const key = 'e6I6PjSAevodOVfP9kWE6ivjPXnDObA6';
     const searchPhrase = userInput;
@@ -68,6 +87,14 @@ class SearchNResults extends React.Component {
     });
   }
 
+  handleSelection(e) {
+    const url = e.target.src
+    const word = this.state.submitInput
+    const date = '05/21/20'
+    const dbRef = firebase.database().ref()
+    dbRef.push({'url': url, 'word': word, 'date': date})
+  }
+
   render() {
     return (
     <>
@@ -78,9 +105,11 @@ class SearchNResults extends React.Component {
           <button type="submit">Submit!</button>
         
       </form>
-        <button onClick={(e) => this.handleRegenerate(e)} >Regenerate</button>
+        <button onClick={(e) => this.handleRegenerate(e)}>Regenerate</button>
 
-        <Results arrSlice={this.state.toSlice} offset={this.state.offset} />
+        <Results arrSlice={this.state.toSlice} offset={this.state.offset} onSelect={(e) => this.handleSelection(e)}/>
+
+        <Timeline data={this.state.firebaseData} />
     </>
 
     );
