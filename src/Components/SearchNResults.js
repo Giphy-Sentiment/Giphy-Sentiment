@@ -3,7 +3,6 @@ import axios from 'axios';
 // import moment from 'moment';
 import firebase from '../firebase';
 import Results from './Results';
-import Timeline from './Timeline';
 
 class SearchNResults extends React.Component {
 	constructor(props) {
