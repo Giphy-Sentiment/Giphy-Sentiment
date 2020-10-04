@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-// import moment from 'moment';
+import moment from 'moment';
 import firebase from '../firebase';
 import Results from './Results';
 
@@ -74,7 +74,7 @@ class SearchNResults extends React.Component {
 	handleSelection(e) {
 		const url = e.target.src;
 		const word = this.state.submitInput;
-		const date = '05/21/20';
+		const date = moment().format('LL');
 		const dbRef = firebase.database().ref();
 		dbRef.push({ url: url, word: word, date: date });
 	}
