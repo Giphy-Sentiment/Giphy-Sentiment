@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
-import firebase from '../firebase';
- 
+import firebase from '../firebase'; 
+import { VerticalTimeline, VerticalTimelineElement} from 'react-vertical-timeline-component';
+import "react-vertical-timeline-component/style.min.css";
+
 class Timeline extends Component {
   constructor() {
     super();
@@ -22,17 +24,33 @@ class Timeline extends Component {
 			});
 		});
   }
-
+  
   render() {
+    const fbDataArr = this.state.firebaseData.slice(0).reverse();
     return (
-      <div className='timeline'>
-        {this.state.firebaseData.map((gifObj) => {
+      <div className="timeline">
+        {fbDataArr.map((gifObj, index) => {
           return (
-            <div>
-              <time>{gifObj.date}</time>
-              <h2>{gifObj.word}</h2>
-              <img src={gifObj.url} alt="" />
-            </div>
+            // Timeline component
+
+            <VerticalTimeline>
+              <ul>
+                <li key={index}>
+                  <VerticalTimelineElement
+                    className="vertical-timeline-element--work vertical-timeline-element--left"
+                    position={index % 2 === 0 ? "left" : "right"}
+                    date={gifObj.date}
+                    iconStyle={{ background: "rgb(33, 150, 243)", color: "#fff" }}
+                  >
+                  
+                    <h3 className="vertical-timeline-element-title">
+                      {gifObj.word}
+                    </h3>
+                    <img src={gifObj.url} />
+                  </VerticalTimelineElement>                  
+                </li>
+              </ul>
+            </VerticalTimeline>
           );
         })}
       </div>

@@ -9,9 +9,24 @@ html { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: 
 .sr-only { position: absolute; width: 1px; height: 1px; margin: -1px; border: 0; padding: 0; white-space: nowrap; clip-path: inset(100%); clip: rect(0 0 0 0); overflow: hidden;}
 
 /* SETUP; GENERAL/UNIVERSAL STYLES */
-ul {
-  display: flex;
+
+/* variables */
+:root {
+  --lightGreen: #8DF8B7;
+  --lightBlue: #AEBDFF;
+  --lightOrange: #FFB454;
+  --headingFont: 'Maitree', serif;
+  --bodyFont: 'Montserrat', sans-serif;
 }
+
+/* stripping styles */
+ul, 
+li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
 .card {
   list-style: none;
   cursor: pointer;
@@ -21,4 +36,19 @@ ul {
   width: 300px;
   border: 10px double;
   padding: 50px;
+}
+
+html {
+  background-color: var(--lightBlue);
+}
+
+h1 {
+  font-family: var(--headingFont);
+}
+
+p,
+button,
+span,
+h3 {
+  font-family: var(--bodyFont);
 }
