@@ -3,7 +3,6 @@ import axios from 'axios';
 import moment from 'moment';
 import firebase from '../firebase';
 import Results from './Results';
-import Timeline from './Timeline';
 
 class SearchNResults extends React.Component {
 	constructor(props) {
@@ -15,22 +14,7 @@ class SearchNResults extends React.Component {
 			offset: 0,
 			gifsUrlArr: [],
 			toSlice: [],
-			firebaseData: [],
 		};
-	}
-
-	componentDidMount() {
-		const dbRef = firebase.database().ref();
-		dbRef.on('value', (res) => {
-			const newState = [];
-			const data = res.val();
-			for (let key in data) {
-				newState.push(data[key]);
-			}
-			this.setState({
-				firebaseData: newState,
-			});
-		});
 	}
 
 	getGif = async (userInput) => {
@@ -66,12 +50,12 @@ class SearchNResults extends React.Component {
 			});
 	};
 
-	handleChange(event) {
-		this.setState({ value: event.target.value });
+	handleChange(e) {
+		this.setState({ value: e.target.value });
 	}
 
-	handleSubmit(event) {
-		event.preventDefault();
+	handleSubmit(e) {
+		e.preventDefault();
 		const input = this.state.value;
 		this.getGif(input);
 		this.setState({ submitInput: input });
@@ -96,9 +80,6 @@ class SearchNResults extends React.Component {
 	}
 
 	render() {
-		// this.state.firebaseData.map((obj) => {
-		// 	return console.log(obj);
-		// });
 		return (
 			<>
 				<form onSubmit={(e) => this.handleSubmit(e)}>
@@ -123,17 +104,6 @@ class SearchNResults extends React.Component {
 					offset={this.state.offset}
 					onSelect={(e) => this.handleSelection(e)}
 				/>
-
-				{/* <Timeline fbData={this.state.firebaseData} /> */}
-				{this.state.firebaseData.map((gifObj) => {
-					return (
-						<div>
-							<time>{gifObj.date}</time>
-							<h2>{gifObj.word}</h2>
-							<img src={gifObj.url} alt="" />
-						</div>
-					);
-				})}
 			</>
 		);
 	}
