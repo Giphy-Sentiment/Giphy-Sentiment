@@ -92,13 +92,13 @@ class SearchAndResults extends React.Component {
           offset={this.state.offset}
           handleSubmit={(e) => this.handleSubmit(e)}
           handleChange={(e) => this.handleChange(e)}
-          handleClick={(e) => this.handleRegenerate(e)}
         />
 
         <Results
           arrSlice={this.state.toSlice}
           offset={this.state.offset}
           onSelect={(e) => this.handleSelection(e)}
+          handleClick={(e) => this.handleRegenerate(e)}
         />
       </>
     );
