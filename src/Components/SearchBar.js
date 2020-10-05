@@ -1,8 +1,9 @@
 import React from 'react'
+import Results from "./Results";
 
 export default function SearchBar(props) {
   return (
-    <>
+    <section>
       <form onSubmit={props.handleSubmit}>
         <label htmlFor="searchterm">
           <p>Search Gallery:</p>
@@ -18,7 +19,6 @@ export default function SearchBar(props) {
         />
         <button type="submit">Submit!</button>
       </form>
-      <button onClick={props.handleClick}>Regenerate</button>
-    </>
+    </section>
   );
 }
