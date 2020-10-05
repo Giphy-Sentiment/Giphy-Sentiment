@@ -2,9 +2,11 @@ import React from 'react';
 import axios from 'axios';
 import moment from 'moment';
 import firebase from '../firebase';
-import Results from './Results';
+import SearchBar from './SearchBar';
+import Results from "./Results";
 
-class SearchNResults extends React.Component {
+
+class SearchAndResults extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -31,6 +33,7 @@ class SearchNResults extends React.Component {
 				this.setState({
 					gifsArray: gifsArr,
 				});
+
 
 				const gifsUrlArr = [];
 
@@ -79,33 +82,26 @@ class SearchNResults extends React.Component {
 		dbRef.push({ url: url, word: word, date: date });
 	}
 
+
 	render() {
 		return (
-			<>
-				<form onSubmit={(e) => this.handleSubmit(e)}>
-					<label htmlFor="searchterm">
-						<p>Search Gallery:</p>
-					</label>
+      <>
+        <SearchBar
+          value={this.state.value}
+          arrSlice={this.state.toSlice}
+          offset={this.state.offset}
+          handleSubmit={(e) => this.handleSubmit(e)}
+          handleChange={(e) => this.handleChange(e)}
+          handleClick={(e) => this.handleRegenerate(e)}
+        />
 
-					<input
-						type="text"
-						name="searchterm"
-						id="searchterm"
-						value={this.state.value}
-						onChange={(e) => this.handleChange(e)}
-						required
-					/>
-					<button type="submit">Submit!</button>
-				</form>
-				<button onClick={(e) => this.handleRegenerate(e)}>Regenerate</button>
-
-				<Results
-					arrSlice={this.state.toSlice}
-					offset={this.state.offset}
-					onSelect={(e) => this.handleSelection(e)}
-				/>
-			</>
-		);
+        <Results
+          arrSlice={this.state.toSlice}
+          offset={this.state.offset}
+          onSelect={(e) => this.handleSelection(e)}
+        />
+      </>
+    );
 	}
 }
-export default SearchNResults;
+export default SearchAndResults;
