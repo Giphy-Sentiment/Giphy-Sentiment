@@ -3,8 +3,7 @@ import axios from 'axios';
 import moment from 'moment';
 import firebase from '../firebase';
 import SearchBar from './SearchBar';
-import Results from "./Results";
-
+import Results from './Results';
 
 class SearchAndResults extends React.Component {
 	constructor(props) {
@@ -19,6 +18,7 @@ class SearchAndResults extends React.Component {
 		};
 	}
 
+	// Method for API call when user submits a mood query
 	getGif = async (userInput) => {
 		const key = 'e6I6PjSAevodOVfP9kWE6ivjPXnDObA6';
 		const searchPhrase = userInput;
@@ -34,19 +34,27 @@ class SearchAndResults extends React.Component {
 					gifsArray: gifsArr,
 				});
 
-
 				const gifsUrlArr = [];
 
+				// Creating an array of objects
+				// Each obj contains k/v pair of url & title (for alt attribute)
 				gifsArr.forEach((gifObj) => {
-					gifsUrlArr.push(gifObj.images.fixed_height.url);
+					gifsUrlArr.push({
+						url: gifObj.images.fixed_height.url,
+						title: gifObj.title,
+					});
 				});
 
+				// Storing array of {url, title} objects in state
 				this.setState({
 					gifsUrlArr,
 				});
 
+				// Creating an array of the first 5 {url, title} obj
 				const toSlice = gifsUrlArr.slice(0, 5);
 
+				// Storing array of 5 {url, title} obj to state
+				// This will then be passed as props to Results comp for display
 				this.setState({
 					toSlice,
 				});
@@ -74,34 +82,37 @@ class SearchAndResults extends React.Component {
 		});
 	}
 
+	// Creating a handle that extracts all data of gif user selects-
+	// and stores to Firebase with each gif being represented as an-
+	// obj of {url, word, date, alt} (word being the mood query user entered)
 	handleSelection(e) {
 		const url = e.target.src;
+		const alt = e.target.alt;
 		const word = this.state.submitInput;
 		const date = moment().format('LL');
 		const dbRef = firebase.database().ref();
-		dbRef.push({ url: url, word: word, date: date });
+		dbRef.push({ url: url, word: word, date: date, alt: alt });
 	}
-
 
 	render() {
 		return (
-      <>
-        <SearchBar
-          value={this.state.value}
-          arrSlice={this.state.toSlice}
-          offset={this.state.offset}
-          handleSubmit={(e) => this.handleSubmit(e)}
-          handleChange={(e) => this.handleChange(e)}
-        />
+			<>
+				<SearchBar
+					value={this.state.value}
+					arrSlice={this.state.toSlice}
+					offset={this.state.offset}
+					handleSubmit={(e) => this.handleSubmit(e)}
+					handleChange={(e) => this.handleChange(e)}
+				/>
 
-        <Results
-          arrSlice={this.state.toSlice}
-          offset={this.state.offset}
-          onSelect={(e) => this.handleSelection(e)}
-          handleClick={(e) => this.handleRegenerate(e)}
-        />
-      </>
-    );
+				<Results
+					arrSlice={this.state.toSlice}
+					offset={this.state.offset}
+					onSelect={(e) => this.handleSelection(e)}
+					handleClick={(e) => this.handleRegenerate(e)}
+				/>
+			</>
+		);
 	}
 }
 export default SearchAndResults;
