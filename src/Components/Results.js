@@ -3,7 +3,7 @@ import React from 'react';
 
 function Results(props) {
 	return (
-		<section id="results">
+		<section name="results">
 			<ul className="resultsList">
 				{props.arrSlice.map((obj, index) => {
 					return (
