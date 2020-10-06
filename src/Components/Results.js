@@ -1,8 +1,9 @@
 import React from 'react';
 
+
 function Results(props) {
 	return (
-		<section>
+		<section id="results">
 			<ul className="resultsList">
 				{props.arrSlice.map((obj, index) => {
 					return (

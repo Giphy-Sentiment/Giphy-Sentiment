@@ -1,9 +1,12 @@
 import React from 'react'
-import Results from "./Results";
+import {Link, animateScroll as scroll} from 'react-scroll';
+
+
+
 
 export default function SearchBar(props) {
   return (
-    <section>
+    <section id="searchbar">
       <form onSubmit={props.handleSubmit}>
         <label htmlFor="searchterm">
           <p>Search Gallery:</p>
@@ -17,7 +20,11 @@ export default function SearchBar(props) {
           onChange={props.handleChange}
           required
         />
-        <button type="submit">Submit!</button>
+        {/* <Link to='/results'> */}
+        
+        <button type="submit" >Submit!</button>
+        
+        {/* </Link> */}
       </form>
     </section>
   );
