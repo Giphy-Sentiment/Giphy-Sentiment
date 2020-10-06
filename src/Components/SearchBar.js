@@ -1,6 +1,5 @@
-import React from 'react'
-import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll'
-
+import React from 'react';
+import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll';
 
 
 export default function SearchBar(props) {
