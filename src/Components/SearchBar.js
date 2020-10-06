@@ -1,10 +1,16 @@
 import React from 'react'
-import {Link, animateScroll as scroll} from 'react-scroll';
-
+import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll'
 
 
 
 export default function SearchBar(props) {
+  const scrollToButton = () => {
+    scroller.scrollTo("results", {
+      duration: 800,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    });
+  };
   return (
     <section id="searchbar">
       <form onSubmit={props.handleSubmit}>
@@ -22,7 +28,8 @@ export default function SearchBar(props) {
         />
         {/* <Link to='/results'> */}
         
-        <button type="submit" >Submit!</button>
+        <button onClick={scrollToButton} type="submit" >Submit!</button>
+        
         
         {/* </Link> */}
       </form>
