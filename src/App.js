@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
-import SearchAndResults from "./Components/SearchAndResults";
+import SearchAndResults from './Components/SearchAndResults';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import Timeline from './Components/Timeline';
@@ -14,23 +14,23 @@ class App extends Component {
 			gifs: [],
 		};
 	}
-	
+
 	render() {
 		const gifs = this.state.gifs;
 		return (
-      <Router>
-        <div className="App">
-          {/* header */}
-          <Header />
-          {/* search bar and results */}
-          <Route path="/results" component={SearchAndResults} />
-          {/* timeline */}
-          <Timeline />
-          {/* footer */}
-          <Footer />
-        </div>
-      </Router>
-    );
+			<Router>
+				<div className="App">
+					{/* header */}
+					<Header />
+					{/* search bar and results */}
+					<Route path="/results" component={SearchAndResults} />
+					{/* timeline */}
+					<Timeline />
+					{/* footer */}
+					<Footer />
+				</div>
+			</Router>
+		);
 	}
 }
 export default App;
