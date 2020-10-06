@@ -228,6 +228,7 @@ html {
 :root {
 	--lightGreen: #8df8b7;
 	--lightBlue: #aebdff;
+	--complimentaryBlue: #7B93FF;
 	--lightOrange: #ffb454;
 	--headingFont: 'Maitree', serif;
 	--bodyFont: 'Montserrat', sans-serif;
@@ -262,21 +263,110 @@ html {
 	background-color: var(--lightBlue);
 }
 
-h1 {
+h1, h2, h3 {
 	font-family: var(--headingFont);
+	margin: 0;
 }
 
 p,
 button,
-span,
-h3 {
+span {
 	font-family: var(--bodyFont);
+}
+
+/* .wrapper */
+.wrapper {
+	max-width: 1280px;
+	width: 85%;
+	margin: 0 auto;
 }
 
 /* App.js */
 section,
 header {
-	height: 100vh;
+	min-height: 100vh;
 	width: 100%;
-	border: 1px solid firebrick;
+}
+
+/* Header.js */
+header {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+h1 {
+	font-size: clamp(3.5rem, 6vw, 7rem);
+}
+
+header p {
+	font-size: clamp(1rem, 2vw, 3rem);
+	font-style: italic;
+}
+
+button {
+	border: 5px double;
+	border-radius: 50px;
+	margin-top: 20px;
+	padding: 8px 20px;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background: var(--lightOrange);
+	transition: background 0.3s ease-in-out;
+}
+
+button:hover,
+button:focus {
+	background: var(--lightGreen);
+}
+
+.searchbar,
+.timeline {
+	background: var(--complimentaryBlue);
+}
+
+.searchbar {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+}
+
+.searchbar input[type="text"] {
+	min-width: 40%;
+	padding: 13px 20px;
+	border-radius: 50px 0 0 50px;
+}
+
+.searchbar button {
+	border: 5px double;
+	border-radius: 0 50px 50px 0;
+	margin-top: 20px;
+	padding: 10px 20px 10px;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	background: var(--lightOrange);
+	transition: background 0.3s ease-in-out;
+}
+
+.searchbar button:hover,
+.searchbar button:focus {
+	background: var(--lightGreen);
+}
+
+footer {
+	min-height: 5vh;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
 }

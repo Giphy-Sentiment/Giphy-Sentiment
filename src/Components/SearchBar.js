@@ -12,27 +12,25 @@ export default function SearchBar(props) {
     });
   };
   return (
-    <section id="searchbar">
-      <form onSubmit={props.handleSubmit}>
-        <label htmlFor="searchterm">
-          <p>Search Gallery:</p>
-        </label>
-
-        <input
-          type="text"
-          name="searchterm"
-          id="searchterm"
-          value={props.value}
-          onChange={props.handleChange}
-          required
-        />
-        {/* <Link to='/results'> */}
-        
-        <button onClick={scrollToButton} type="submit" >Submit!</button>
-        
-        
-        {/* </Link> */}
-      </form>
+    <section className="searchbar" id="searchbar">
+      <div className="wrapper">
+        <form onSubmit={props.handleSubmit}>
+          <label htmlFor="searchterm">
+            <p>Describe how you are feeling today in just TWO words</p>
+          </label>
+          {/* <div className="searchBox"> */}
+            <input
+              type="text"
+              name="searchterm"
+              id="searchterm"
+              value={props.value}
+              onChange={props.handleChange}
+              required
+            />
+            <button onClick={scrollToButton} type="submit"><span className="fas fa-search" aria-label="search" value="&#xf002;"></span></button>
+          {/* </div> */}
+        </form>
+      </div>
     </section>
   );
 }

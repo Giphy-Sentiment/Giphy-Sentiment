@@ -36,33 +36,35 @@ class Timeline extends Component {
 		// displays gifs from latest to oldest
 		const fbDataArr = this.state.firebaseData.slice(0).reverse();
 		return (
-			<section>
-				<ul>
-					{fbDataArr.map((obj, index) => {
-						return (
-							// Timeline component
-							<VerticalTimeline>
-								<li key={obj.key}>
-									<VerticalTimelineElement
-										className="vertical-timeline-element--work"
-										position={index % 2 === 0 ? 'left' : 'right'}
-										// position="right"
-										date={obj.gifObj.date}
-										iconStyle={{
-											background: 'rgb(33, 150, 243)',
-											color: '#fff',
-										}}
-									>
-										<h3 className="vertical-timeline-element-title">
-											{obj.gifObj.word}
-										</h3>
-										<img src={obj.gifObj.url} alt={obj.gifObj.alt} />
-									</VerticalTimelineElement>
-								</li>
-							</VerticalTimeline>
-						);
-					})}
-				</ul>
+			<section className="timeline" name="timeline">
+				<div className="wrapper">
+					<ul>
+						{fbDataArr.map((obj, index) => {
+							return (
+								// Timeline component
+								<VerticalTimeline>
+									<li key={obj.key}>
+										<VerticalTimelineElement
+											className="vertical-timeline-element--work"
+											position={index % 2 === 0 ? 'left' : 'right'}
+											// position="right"
+											date={obj.gifObj.date}
+											iconStyle={{
+												background: 'rgb(33, 150, 243)',
+												color: '#fff',
+											}}
+										>
+											<h3 className="vertical-timeline-element-title">
+												{obj.gifObj.word}
+											</h3>
+											<img src={obj.gifObj.url} alt={obj.gifObj.alt} />
+										</VerticalTimelineElement>
+									</li>
+								</VerticalTimeline>
+							);
+						})}
+					</ul>
+				</div>	
 			</section>
 		);
 	}
