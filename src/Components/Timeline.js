@@ -29,6 +29,11 @@ class Timeline extends Component {
 		});
 	}
 
+	removePost = (postKey) => {
+		const dbRef = firebase.database().ref();
+		dbRef.child(postKey).remove();
+	}
+
 	render() {
 		// [{key: 'dafjo2ji32o3j', gifObj:{url, word, date, alt}}, {}, {}]
 		// console.log(this.state.firebaseData);
@@ -38,6 +43,7 @@ class Timeline extends Component {
 		return (
 			<section className="timeline" name="timeline">
 				<div className="wrapper">
+					<h2>2020 Feels</h2>
 					<ul>
 						{fbDataArr.map((obj, index) => {
 							return (
@@ -57,7 +63,8 @@ class Timeline extends Component {
 											<h3 className="vertical-timeline-element-title">
 												{obj.gifObj.word}
 											</h3>
-											<img src={obj.gifObj.url} alt={obj.gifObj.alt} />
+											<img src={obj.gifObj.url} alt={obj.gifObj.alt} />	
+											<button onClick={() => { this.removePost(obj.key) }}>x</button>
 										</VerticalTimelineElement>
 									</li>
 								</VerticalTimeline>

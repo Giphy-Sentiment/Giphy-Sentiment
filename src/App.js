@@ -19,6 +19,7 @@ class App extends Component {
 			offset: 0,
 			gifsUrlArr: [],
 			toSlice: [],
+			validate: false,
 		};
 	}
 	// Method for API call when user submits a mood query
@@ -62,9 +63,16 @@ class App extends Component {
 	}
 	handleSubmit(e) {
 		e.preventDefault();
-		const input = this.state.value;
-		this.getGif(input);
-		this.setState({ submitInput: input });
+		const reg = /^\s*([a-zA-Z]+\s*){1,2}$/
+		if (reg.test(this.state.value))
+			{
+				const input = this.state.value
+				this.getGif(input);
+				this.setState({ submitInput: input, validate: true })
+			}
+			else {
+				alert('max 2 words')
+			}
 	}
 	handleRegenerate(e) {
 		e.preventDefault();
@@ -96,6 +104,7 @@ class App extends Component {
 					offset={this.state.offset}
 					handleSubmit={(e) => this.handleSubmit(e)}
 					handleChange={(e) => this.handleChange(e)}
+					validEntry={this.state.validate ? "results" : "INVALID"}
 				/>
 
 				<Results
