@@ -1,7 +1,6 @@
 import React from 'react';
 import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll';
 
-
 export default function SearchBar(props) {
   const scrollToButton = () => {
     scroller.scrollTo(props.validEntry, {
@@ -15,7 +14,7 @@ export default function SearchBar(props) {
       <div className="wrapper">
         <form onSubmit={props.handleSubmit}>
           <label htmlFor="searchterm">
-            <p>Describe how you are feeling today in just <span className="bold">ONE</span> or <span className="bold">TWO</span> words</p>
+            <p>Describe how you are feeling today in just <span className="specialStyling">ONE</span> or <span className="specialStyling">TWO</span> words</p>
           </label>
             <input
               type="text"

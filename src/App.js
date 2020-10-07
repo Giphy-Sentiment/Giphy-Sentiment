@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import moment from 'moment';
-
 import firebase from './firebase';
+import swal from 'sweetalert';
 import SearchBar from './Components/SearchBar';
 import Results from './Components/Results';
 import Timeline from './Components/Timeline';
@@ -45,21 +45,27 @@ class App extends Component {
 						title: gifObj.title,
 					});
 				});
-				// Storing array of {url, title} objects in state
-				this.setState({
-					gifsUrlArr,
-				});
-				// Creating an array of the first 5 {url, title} obj
-				const toSlice = gifsUrlArr.slice(0, 5);
-				// Storing array of 5 {url, title} obj to state
-				// This will then be passed as props to Results comp for display
-				this.setState({
-					toSlice,
-				});
+				if (gifsUrlArr.length === 0) {
+					swal('NO GIFS FOUND. PLEASE TRY ANOTHER WORD.')
+				}
+				else {
+					// Storing array of {url, title} objects in state
+					this.setState({
+						gifsUrlArr,
+					});
+					// Creating an array of the first 5 {url, title} obj
+					const toSlice = gifsUrlArr.slice(0, 5);
+					// Storing array of 5 {url, title} obj to state
+					// This will then be passed as props to Results comp for display
+					this.setState({
+						toSlice,
+					});
+				}
 			});
 	};
 	handleChange(e) {
-		this.setState({ value: e.target.value });
+		const targetValue = e.target.value.charAt(0).toUpperCase() + e.target.value.slice(1)
+		this.setState({ value: targetValue });
 	}
 	handleSubmit(e) {
 		e.preventDefault();
@@ -71,17 +77,23 @@ class App extends Component {
 				this.setState({ submitInput: input, validate: true })
 			}
 			else {
-				alert('max 2 words')
+				swal('Please only enter one or two words.')
+				this.setState({ validate: false })
 			}
 	}
 	handleRegenerate(e) {
 		e.preventDefault();
-		let thing = this.state.offset + 5;
-		const arrSlice = this.state.gifsUrlArr.slice(thing, 5 + thing);
-		this.setState({
-			offset: thing,
-			toSlice: arrSlice,
-		});
+		let offsetNum = this.state.offset + 5;
+		if (offsetNum >= this.state.gifsUrlArr.length) {
+			swal('There are no more GIFs. Please search a new word.')
+		}
+		else {
+			const arrSlice = this.state.gifsUrlArr.slice(offsetNum, 5 + offsetNum);
+			this.setState({
+				offset: offsetNum,
+				toSlice: arrSlice,
+			});
+		}
 	}
 	// Creating a handle that extracts all data of gif user selects-
 	// and stores to Firebase with each gif being represented as an-

@@ -15,9 +15,10 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-moment": "^1.0.0",
-    "react-scroll": "^1.8.1",
     "react-scripts": "3.4.3",
-    "react-vertical-timeline-component": "^3.0.2"
+    "react-scroll": "^1.8.1",
+    "react-vertical-timeline-component": "^3.0.2",
+    "sweetalert": "^2.1.2"
   },
   "scripts": {
     "predeploy": "npm run build",
