@@ -4,8 +4,8 @@ import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'rea
 
 export default function SearchBar(props) {
   const scrollToButton = () => {
-    scroller.scrollTo("results", {
-      duration: 800,
+    scroller.scrollTo(props.validEntry, {
+      duration: 1000,
       delay: 0,
       smooth: "easeInOutQuart",
     });
@@ -15,9 +15,8 @@ export default function SearchBar(props) {
       <div className="wrapper">
         <form onSubmit={props.handleSubmit}>
           <label htmlFor="searchterm">
-            <p>Describe how you are feeling today in just TWO words</p>
+            <p>Describe how you are feeling today in just <span className="bold">ONE</span> or <span className="bold">TWO</span> words</p>
           </label>
-          {/* <div className="searchBox"> */}
             <input
               type="text"
               name="searchterm"
@@ -27,7 +26,6 @@ export default function SearchBar(props) {
               required
             />
             <button onClick={scrollToButton} type="submit"><span className="fas fa-search" aria-label="search" value="&#xf002;"></span></button>
-          {/* </div> */}
         </form>
       </div>
     </section>
