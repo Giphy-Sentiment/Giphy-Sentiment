@@ -14,7 +14,7 @@ function Results(props) {
 	console.log(props.validEntry);
 	return (
 		<section className="results" name="results">
-			<p>Choose a GIF that best suits your current emotion.</p>
+			<p>Choose a <span className="specialStyling">GIF</span> that best suits your current emotion:</p>
 			<div className="wrapper">
 				<ul className="resultsList">
 					{props.arrSlice.map((obj, index) => {

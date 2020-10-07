@@ -48,26 +48,28 @@ class Timeline extends Component {
 						{fbDataArr.map((obj, index) => {
 							return (
 								// Timeline component
-								<VerticalTimeline>
-									<li key={obj.key}>
-										<VerticalTimelineElement
-											className="vertical-timeline-element--work"
-											position={index % 2 === 0 ? 'left' : 'right'}
-											// position="right"
-											date={obj.gifObj.date}
-											iconStyle={{
-												background: 'rgb(33, 150, 243)',
-												color: '#fff',
-											}}
-										>
-											<h3 className="vertical-timeline-element-title">
-												{obj.gifObj.word}
-											</h3>
-											<img src={obj.gifObj.url} alt={obj.gifObj.alt} />	
-											<button onClick={() => { this.removePost(obj.key) }}>x</button>
-										</VerticalTimelineElement>
-									</li>
-								</VerticalTimeline>
+								<div className="timelineWrap">
+									<VerticalTimeline>
+										<li key={obj.key}>
+											<VerticalTimelineElement
+												className="vertical-timeline-element--work"
+												position={index % 2 === 0 ? 'left' : 'right'}
+												// position="right"
+												date={obj.gifObj.date}
+												iconStyle={{
+													background: 'rgb(33, 150, 243)',
+													color: '#fff',
+												}}
+											>
+												<h3 className="vertical-timeline-element-title">
+													{obj.gifObj.word}
+												</h3>
+												<img src={obj.gifObj.url} alt={obj.gifObj.alt} />	
+												<button onClick={() => { this.removePost(obj.key) }}>x</button>
+											</VerticalTimelineElement>
+										</li>
+									</VerticalTimeline>
+								</div>
 							);
 						})}
 					</ul>
