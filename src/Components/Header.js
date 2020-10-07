@@ -1,5 +1,4 @@
 import React from 'react';
-// import {Link, animateScroll as Scroll} from 'react-scroll';
 import { Link, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 function Header() {
@@ -15,7 +14,7 @@ function Header() {
   return (
     <header>
       <div className="wrapper">
-        <a onClick={scrollToTimeline}>Go to timeline!</a>
+        <a className="timelineLink" onClick={scrollToTimeline}><span className="fas fa-hourglass"></span>Head To Timeline</a>
         <div className="headerContents">
           <h1>Giphy Sentiment</h1>
           <p>Turning your emotions into GIFs</p>
