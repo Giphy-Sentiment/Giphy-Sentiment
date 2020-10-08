@@ -339,9 +339,10 @@ header .wrapper {
 	cursor: pointer;
 	border: 5px double var(--baseBlack);
 	border-radius: 50px;
+	font-weight: bold;
 	letter-spacing: 3px;
 	text-transform: uppercase;
-	padding: 10px 5px;
+	padding: 15px 10px;
 	background: var(--lightOrange);
 	position: absolute;
 	top: 5%;
@@ -581,9 +582,42 @@ input:required:hover {
 	padding: 50px 0;
 }
 
+.timelineContainer {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	text-align: center;
+}
+
+.removePost {
+	padding: 0 5px;
+	margin: 0;
+}
+
+button:hover,
+button:focus {
+	background: var(--lightGreen);
+}
+
+/* .vertical-timeline-element-content {
+	position: relative;
+	background-color: yellowgreen;
+}
+
+.vertical-timeline-element-content button {
+	position: absolute;
+	top: 0;
+	right: 0;
+} */
+
+.timelineWrap {
+	max-width: 800px;
+	margin: 0 auto;
+}
+
 @media (max-width: 1170px) {
 	.timelineWrap {
-		max-width: 600px;
+		max-width: 360px;
 	}
 }
 
