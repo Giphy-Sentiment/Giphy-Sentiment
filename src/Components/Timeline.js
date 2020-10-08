@@ -61,11 +61,13 @@ class Timeline extends Component {
 													color: '#fff',
 												}}
 											>
-												<h3 className="vertical-timeline-element-title">
-													{obj.gifObj.word}
-												</h3>
+												<div className="timelineContainer">
+													<h3 className="vertical-timeline-element-title">
+														{obj.gifObj.word}
+													</h3>
+													<button className="removePost" onClick={() => { this.removePost(obj.key) }}>x</button>
+												</div>
 												<img src={obj.gifObj.url} alt={obj.gifObj.alt} />	
-												<button onClick={() => { this.removePost(obj.key) }}>x</button>
 											</VerticalTimelineElement>
 										</li>
 									</VerticalTimeline>
