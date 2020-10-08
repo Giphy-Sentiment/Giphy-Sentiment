@@ -35,8 +35,6 @@ class Timeline extends Component {
 	}
 
 	render() {
-		// [{key: 'dafjo2ji32o3j', gifObj:{url, word, date, alt}}, {}, {}]
-		// console.log(this.state.firebaseData);
 		// Reversing array of {url, word, alt, date} obj so that timeline-
 		// displays gifs from latest to oldest
 		const fbDataArr = this.state.firebaseData.slice(0).reverse();
@@ -47,26 +45,23 @@ class Timeline extends Component {
 					<ul>
 						{fbDataArr.map((obj, index) => {
 							return (
-								// Timeline component
 								<div className="timelineWrap">
 									<VerticalTimeline>
 										<li key={obj.key}>
 											<VerticalTimelineElement
 												className="vertical-timeline-element--work"
 												position={index % 2 === 0 ? 'left' : 'right'}
-												// position="right"
 												date={obj.gifObj.date}
 												iconStyle={{
-													background: 'rgb(33, 150, 243)',
+													background: '#8df8b7',
 													color: '#fff',
 												}}
 											>
-												<div className="timelineContainer">
-													<h3 className="vertical-timeline-element-title">
-														{obj.gifObj.word}
-													</h3>
-													<button className="removePost" onClick={() => { this.removePost(obj.key) }}>x</button>
-												</div>
+												<p>On this day, I was feeling:</p>
+												<h3 className="vertical-timeline-element-title">
+													{obj.gifObj.word}
+												</h3>
+												<button className="removePost" onClick={() => { this.removePost(obj.key) }}><span className="fas fa-trash-alt" aria-label="delete post"></span></button>
 												<img src={obj.gifObj.url} alt={obj.gifObj.alt} />	
 											</VerticalTimelineElement>
 										</li>

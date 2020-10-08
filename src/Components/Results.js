@@ -14,8 +14,8 @@ function Results(props) {
 	console.log(props.validEntry);
 	return (
 		<section className="results" name="results">
-			<p>Choose a <span className="specialStyling">GIF</span> that best suits your current emotion:</p>
 			<div className="wrapper">
+				<p>Choose a <span className="specialStyling">GIF</span> that best suits your current emotion:</p>
 				<ul className="resultsList">
 					{props.arrSlice.map((obj, index) => {
 						return (
@@ -28,10 +28,10 @@ function Results(props) {
 						);
 					})}
 				</ul>
-			</div>
-			<div className="regenerateContents">
-				<p>Don't like what you see?</p>
-				<button onClick={props.handleClick}>Regenerate</button>
+				<div className="regenerateContents">
+					<p>Don't like what you see?</p>
+					<button onClick={props.handleClick}>Regenerate</button>
+				</div>
 			</div>
 		</section>
 	);

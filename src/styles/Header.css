@@ -1,0 +1,129 @@
+header .wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	position: relative;
+}
+
+.timelineLink {
+	cursor: pointer;
+	border: 5px double var(--baseBlack);
+  border-radius: 50px;
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+	font-weight: bold;
+	letter-spacing: 3px;
+	text-transform: uppercase;
+	padding: 7px;
+	background: var(--lightOrange);
+	position: absolute;
+	top: 5%;
+	right: 0;
+	transition: background 0.3s ease-in-out;
+}
+
+.timelineLink:hover,
+.timelineLink:focus {
+	background: var(--lightGreen);
+}
+
+.timelineLink:hover > .fa-hourglass,
+.timelinkLink:focus > .fa-hourglass { 
+	color: var(--lightOrange);
+}
+
+.fa-hourglass {
+	color: var(--lightGreen);
+	margin-right: 5px;
+	transition: color 0.3s ease-in-out;
+}
+
+.headerContents {
+	position: relative;
+}
+
+h1 {
+	font-size: clamp(3.3rem, 6vw, 6.5rem);
+	position: relative;
+	z-index: 20;
+	margin-bottom: 40px;
+	text-shadow: 4px -2px 1px var(--lightOrange);
+}
+
+.logo {
+	position: absolute;
+	width: 100%;
+	bottom: 40%;
+}
+
+.line {
+	background: #263974;
+	height: 5px;
+	width: 100%;
+	position: relative;
+}
+
+.triangleLeft {
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-bottom: 30px solid #263974;
+	transform: rotate(-90deg);
+	position: absolute;
+	left: -10px;
+	bottom: -12px;
+}
+
+.triangleRight {
+	width: 0;
+	height: 0;
+	border-left: 20px solid transparent;
+	border-right: 20px solid transparent;
+	border-top: 30px solid #263974;
+	transform: rotate(-90deg);
+	position: absolute;
+	right: -10px;
+	bottom: -12px;
+}
+
+.fa-smile-beam {
+	color: #8e8ee5;
+	font-size: 2rem;
+	position: absolute;
+	bottom: -12px;
+	left: 10%;
+	text-shadow: 2px 2px 2px #25255f;
+}
+
+header p {
+	font-size: clamp(1.3rem, 2vw, 3rem);
+	font-style: italic;
+	letter-spacing: .15em;
+	display: inline-block;
+	overflow: hidden;
+	border-right: .1em solid var(--baseBlack);
+	white-space: nowrap;
+	margin: 0 auto;
+	padding-right: 5px;
+	text-shadow: 3px 3px 1px var(--baseWhite);
+	animation: 
+  	typing 5s steps(60, end),
+  	blinkingCursor .5s step-end infinite;
+}
+
+header button {
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+@keyframes blinkingCursor {
+  from, to { border-color: transparent }
+  50% { border-color: var(--baseBlack); }
+}

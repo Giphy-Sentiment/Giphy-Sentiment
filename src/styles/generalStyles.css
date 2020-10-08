@@ -1,0 +1,55 @@
+html {
+	overflow-x: hidden;
+	font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  background-color: var(--lightBlue);
+	color: var(--baseBlack);
+}
+
+h1, h2, h3 {
+	font-family: var(--headingFont);
+}
+
+p,
+button,
+a,
+span {
+	font-family: var(--bodyFont);
+}
+
+.wrapper {
+	max-width: 1280px;
+	width: 85%;
+	margin: 0 auto;
+}
+
+section,
+header {
+	min-height: 100vh;
+}
+
+button {
+	border: 5px double var(--baseBlack);
+	border-radius: 50px;
+	margin-top: 20px;
+	padding: 8px 20px;
+	font-weight: bold;
+	cursor: pointer;
+	text-transform: uppercase;
+	letter-spacing: 3px;
+	background: var(--lightOrange);
+	transition: background 0.3s ease-in-out;
+}
+
+button:hover,
+button:focus {
+	background: var(--lightGreen);
+}
+
+.searchbar,
+.timeline {
+	background: var(--complimentaryBlue);
+}

@@ -1,0 +1,22 @@
+@import './setup.css';
+@import './cssReset.css';
+@import './variables.css';
+@import './generalStyles.css';
+@import './Header.css';
+@import './SearchBar.css';
+@import './Results.css';
+@import './Timeline.css';
+@import './Footer.css';
+@import './mediaQueries.css';
+
+.swal-modal {
+  background-color: var(--lightGreen);
+  border: 3px solid white;
+}
+
+.swal-footer {
+  background-color: var(--lightOrange);
+  margin-top: 32px;
+  border-top: 1px solid #E9EEF1;
+  overflow: hidden;
+}
