@@ -89,13 +89,41 @@ h1 {
 	bottom: -12px;
 }
 
-.fa-smile-beam {
+.emoji {
 	color: #8e8ee5;
 	font-size: 2rem;
 	position: absolute;
-	bottom: -12px;
-	left: 10%;
 	text-shadow: 2px 2px 2px #25255f;
+}
+
+.fa-smile-beam {
+	left: 15%;
+	bottom: -20px;
+}
+
+.fa-tired {
+	left: 28%;
+	top: -20px;
+}
+
+.fa-sad-tear {
+	left: 40%;
+	bottom: -20px;
+}
+
+.fa-meh-blank {
+	left: 54%;
+	top: -20px;
+}
+
+.fa-grin-hearts {
+	left: 68%;
+	bottom: -20px;
+}
+
+.fa-angry {
+	left: 80%;
+	top: -20px;
 }
 
 header p {

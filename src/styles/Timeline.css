@@ -19,7 +19,7 @@ h2 {
 
 .vertical-timeline-element-content {
   background: var(--lightBlue);
-  box-shadow: 0 3px 0 var(--lightOrange);
+  box-shadow: 0 3px 0 var(--lightGreen);
 }
 
 h3 {
