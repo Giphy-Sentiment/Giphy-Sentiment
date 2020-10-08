@@ -7,13 +7,6 @@
   }
 }
 
-@media (hover: hover) {
-  button:hover {
-    border: 2px dotted var(--lightOrange);
-    ;
-  }
-}
-
 @media (max-width: 1170px) {
 	.timelineWrap {
     max-width: 360px;
