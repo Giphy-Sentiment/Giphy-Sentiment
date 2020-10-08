@@ -8,7 +8,7 @@ import Results from './Components/Results';
 import Timeline from './Components/Timeline';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
-import './App.css';
+import './styles/App.css';
 class App extends Component {
 	constructor(props) {
 		super(props);
@@ -46,7 +46,7 @@ class App extends Component {
 					});
 				});
 				if (gifsUrlArr.length === 0) {
-					swal('NO GIFS FOUND. PLEASE TRY ANOTHER WORD.')
+					swal("No GIFs found.", "Please try again!", "error");
 				}
 				else {
 					// Storing array of {url, title} objects in state
@@ -77,7 +77,7 @@ class App extends Component {
 				this.setState({ submitInput: input, validate: true })
 			}
 			else {
-				swal('Please only enter one or two words.')
+				swal("Please only enter", "ONE or TWO words.", "info")
 				this.setState({ validate: false })
 			}
 	}
@@ -85,7 +85,7 @@ class App extends Component {
 		e.preventDefault();
 		let offsetNum = this.state.offset + 5;
 		if (offsetNum >= this.state.gifsUrlArr.length) {
-			swal('There are no more GIFs. Please search a new word.')
+			swal("There are no more GIFs.", "Please search a new word!", "warning")
 		}
 		else {
 			const arrSlice = this.state.gifsUrlArr.slice(offsetNum, 5 + offsetNum);

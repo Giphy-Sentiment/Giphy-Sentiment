@@ -22,11 +22,15 @@ function Header() {
             <div className="line">
               <div className="triangleLeft"></div>
               <div className="triangleRight"></div>
-              <span className="fas fa-smile-beam"></span>
+              <span className="fas fa-smile-beam emoji"></span>
+              <span className="fas fa-tired emoji"></span>
+              <span className="fas fa-sad-tear emoji"></span>
+              <span className="fas fa-meh-blank emoji"></span>
+              <span className="fas fa-grin-hearts emoji"></span>
+              <span className="fas fa-angry emoji"></span>
             </div>
           </div>
         </div>  
-        
         <Link activeClass="active" to="searchbar" spy={true} smooth={true} duration={1000}>
           <button>Get Started</button>
         </Link>

@@ -1,0 +1,64 @@
+.results {
+	text-align: center;
+	padding: 50px 0;
+}
+
+.results .wrapper {
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.resultsList {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+}
+
+.card {
+	list-style: none;
+	cursor: pointer;
+	margin: 15px 10px;
+	position: relative;
+}
+
+.overlay {
+	display: none;
+	text-shadow: 2px -3px 2px var(--lightGreen);
+}
+
+.card:hover .overlay,
+.card:focus .overlay {
+	display: block;
+	position: absolute;
+	font-size: 5rem;
+	font-weight: bold;
+	z-index: 20;
+	top: 35%;
+	left: 43%;
+}
+
+.card img {
+	height: 200px;
+	width: 200px;
+	max-width: 100%;
+	border: 10px double var(--baseBlack);
+	box-shadow: 12px 12px var(--baseBlack);
+	transition: opacity 0.3s ease-in-out;
+}
+
+.card img:hover,
+.card img:focus {
+	opacity: 0.5;
+	background: var(--lightGreen);
+}
+
+.results p {
+	font-size: clamp(1.8rem, 3vw, 3rem);
+	letter-spacing: 3px;
+	font-weight: bold;
+	text-shadow: 2px -2px 1px var(--baseWhite);
+}

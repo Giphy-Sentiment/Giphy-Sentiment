@@ -1,0 +1,82 @@
+.timeline {
+	padding: 50px 0;
+}
+
+h2 {
+	font-size: clamp(3rem, 5vw, 5.5rem);
+	text-transform: uppercase;
+	letter-spacing: 5px;
+	text-align: center;
+	margin-bottom: 50px;
+	text-shadow: 4px -2px 1px var(--lightOrange);
+}
+
+.timelineWrap {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative; 
+}
+
+.vertical-timeline-element-content {
+  background: var(--lightBlue);
+  box-shadow: 0 3px 0 var(--lightGreen);
+}
+
+h3 {
+  font-size: clamp(1.8rem, 3vw, 2.3rem);
+  letter-spacing: 2px;
+}
+
+.vertical-timeline-element-title {
+  margin: 3px 0 6px 0;
+}
+
+.removePost {
+  letter-spacing: 0;
+	padding: 2px 4px;
+  margin: 0;
+  position: absolute;
+  top: 4px;
+  right: 4px;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.timeline p,
+.vertical-timeline-element-content .vertical-timeline-element-date {
+  font-size: clamp(1.6rem, 3vw, 1.8rem);
+}
+
+.vertical-timeline-element-content .vertical-timeline-element-date::before,
+.vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date::before {
+  content: '\f073';
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  width: 10px;
+  height: 10px;
+  margin-right: 2px;
+}
+
+.vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
+  font-size: clamp(1.8rem, 3vw, 2rem);
+  letter-spacing: 1px;
+  margin: 10px;
+}
+
+.timeline img {
+  width: 270px;
+  height: 200px;
+  border: 10px double;
+}
+
+.timeline p {
+  letter-spacing: 1px;
+  font-style: italic;
+  text-decoration: underline;
+}
