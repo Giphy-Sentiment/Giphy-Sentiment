@@ -1,8 +1,6 @@
 import React from 'react';
 import {Element, Events, animateScroll as scroll, scrollSpy, scroller} from 'react-scroll';
 
-
-
 export default function SearchBar(props) {
   const scrollToButton = () => {
     scroller.scrollTo(props.validEntry, {
