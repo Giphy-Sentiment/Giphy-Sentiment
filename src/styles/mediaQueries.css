@@ -1,39 +1,33 @@
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 @media (max-width: 1170px) {
-	.timelineWrap {
-    max-width: 360px;
-  }
-
-  .timeline p,
-  .vertical-timeline-element-content .vertical-timeline-element-date,
-  .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
-    font-size: clamp(1.4rem, 3vw, 1.6rem);
-    color: #000000;
-    margin: 0;
-  }
+    .timelineWrap {
+        max-width: 360px;
+    }
+    .timeline p,
+    .vertical-timeline-element-content .vertical-timeline-element-date,
+    .vertical-timeline--two-columns .vertical-timeline-element-content .vertical-timeline-element-date {
+        font-size: clamp(1.4rem, 3vw, 1.6rem);
+        color: #000000;
+        margin: 0;
+    }
 }
 
 @media (max-width: 390px) {
-  .timelineLink {
-    right: 10%;
-  }
-
-	.timeline img {
-		max-width: 150px;
-  }
-  
-  header p {
-    margin-top: 20px;
-  }
+    .timelineLink {
+        right: 10%;
+    }
+    .timeline img {
+        max-width: 150px;
+    }
+    header p {
+        margin-top: 20px;
+    }
 }
-
-
-

@@ -11,9 +11,9 @@ function Results(props) {
 		});
 	};
 
-	console.log(props.validEntry);
+	
 	return (
-		<section className="results" name="results">
+		<section className="results" name="results" id="results">
 			<div className="wrapper">
 				<p>Choose a <span className="specialStyling">GIF</span> that best suits your current emotion:</p>
 				<ul className="resultsList">

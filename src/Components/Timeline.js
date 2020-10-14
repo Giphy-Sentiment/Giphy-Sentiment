@@ -45,9 +45,9 @@ class Timeline extends Component {
 					<ul>
 						{fbDataArr.map((obj, index) => {
 							return (
-								<div className="timelineWrap">
+								<div className="timelineWrap" key={obj.key}>
 									<VerticalTimeline>
-										<li key={obj.key}>
+										<li>
 											<VerticalTimelineElement
 												className="vertical-timeline-element--work"
 												position={index % 2 === 0 ? 'left' : 'right'}
