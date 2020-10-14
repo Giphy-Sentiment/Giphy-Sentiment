@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bf72e9fb7eb1e27c904b2b25fb54ca31",
+    "revision": "dd8760a3b490517f759b2efaea84f9a7",
     "url": "/Giphy-Sentiment/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Giphy-Sentiment/static/css/2.ac1ab58b.chunk.css"
   },
   {
-    "revision": "bf91a714c45aeb697527",
-    "url": "/Giphy-Sentiment/static/css/main.98089495.chunk.css"
+    "revision": "74d52824dc0243f0634b",
+    "url": "/Giphy-Sentiment/static/css/main.6f7adcc4.chunk.css"
   },
   {
     "revision": "d10d05cec789fbf71d89",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/Giphy-Sentiment/static/js/2.0774cadf.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "bf91a714c45aeb697527",
-    "url": "/Giphy-Sentiment/static/js/main.2230141b.chunk.js"
+    "revision": "74d52824dc0243f0634b",
+    "url": "/Giphy-Sentiment/static/js/main.85a38e66.chunk.js"
   },
   {
     "revision": "6b4d0e9d8eb75014aac2",
